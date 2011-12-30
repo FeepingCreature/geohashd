@@ -1,0 +1,36 @@
+geohashd: measure distance to local geohash spot, email user if in range.
+
+Build:
+acquire tools
+  http://dsource.org/projects/scrapple/browser/trunk/tools/tools
+  symlink so that there is ./tools/smtp.d
+acquire gdc-build
+  https://github.com/FeepingCreature/gdc-build
+gdc-build geohashd.d -o geohashd && sudo install geohashd /usr/local/bin
+
+$ ./geohashd --help
+./geohashd
+--home=<home address>
+--maxdist=<max distance>
+--area=<lat,±long>
+--email=<mail>
+--smtpdata=<smtp info>
+--walk=y/n
+
+smtpdata must be of the form "login:password@smtp server". AUTH PLAIN will
+be used, sending your password in the clear. Because of this, you may want
+to use a throwaway account.
+
+You can also create a ~/.geohash/geohash.cfg .
+A template:
+
+ walk = [true|false]; 
+ smtpdata = [same as above];
+ email = [same as above]; 
+ area = 0,+0; 
+ maxdist = [in km]; 
+ home = [your home address, as understood by google maps]; 
+
+You may want to put this in your crontab so it's run every night.
+
+Have fun geohashing!
