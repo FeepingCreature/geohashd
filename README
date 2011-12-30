@@ -21,16 +21,11 @@ smtpdata must be of the form "login:password@smtp server". AUTH PLAIN will
 be used, sending your password in the clear. Because of this, you may want
 to use a throwaway account.
 
-You can also create a ~/.geohash/geohash.cfg .
-A template:
+If you do not specify an argument, it will be taken from ~/.geohash/geohash.cfg.
+If no such file exists, you will be prompted for the missing data,
+and your input will be saved in the configuration file.
 
- walk = [true|false]; 
- smtpdata = [same as above];
- email = [same as above]; 
- area = 0,+0; 
- maxdist = [in km]; 
- home = [your home address, as understood by google maps]; 
-
-You may want to put this in your crontab so it's run every night.
+Once geohashd is configured, you may want to put this in your crontab
+so it's run every night.
 
 Have fun geohashing!
